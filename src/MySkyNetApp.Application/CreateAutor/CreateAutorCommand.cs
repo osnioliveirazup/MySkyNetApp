@@ -1,6 +1,8 @@
-namespace MySkyNetApp.Api.Controllers
+using MediatR;
+
+namespace MySkyNetApp.Application.CreateAutor
 {
-    public class AutorRequest
+    public class CreateAutorCommand : IRequest<CreateAutorResult>
     {
         public string Nome { get; set; }
 
