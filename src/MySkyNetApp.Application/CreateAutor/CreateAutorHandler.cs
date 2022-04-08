@@ -12,9 +12,9 @@ namespace MySkyNetApp.Application.CreateAutor
             var result = new CreateAutorResult
             {
                 Id = 1,
-                Nome = "Osni Oliveira",
-                Email = "osni.oliveira@zup.com.br",
-                Descricao = "Um dev"
+                Nome = command.Nome,
+                Email = command.Email,
+                Descricao = command.Descricao
             };
             return result;
         }
