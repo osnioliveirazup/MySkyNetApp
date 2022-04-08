@@ -13,13 +13,18 @@ namespace MySkyNetApp.Api.Controllers
     {
         private readonly IMediator _mediator;
 
+        public AutoresController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(CreateAutorResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(HttpResponse), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> Create(CreateAutorCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateAutorCommand command)
         {
-            var autor = await _mediator.Send(command);
-            return Ok(autor);
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }
