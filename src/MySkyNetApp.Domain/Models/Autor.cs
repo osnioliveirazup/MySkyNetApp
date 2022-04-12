@@ -12,6 +12,6 @@ namespace MySkyNetApp.Domain.Models
 
         public string Descricao { get; set; }
 
-        public DateTime InstanteCriacao { get; set; }
+        public DateTime InstanteCriacao { get; set; } = DateTime.Now;
     }
 }
