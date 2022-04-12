@@ -1,10 +1,8 @@
 using System;
-using MySkyNetApp.Application.Common.Mappings;
-using MySkyNetApp.Domain.Models;
 
-namespace MySkyNetApp.Application.CreateAutor
+namespace MySkyNetApp.Domain.Models
 {
-    public class CreateAutorResult : IMapFrom<Autor>
+    public class Autor
     {
         public int Id { get; set; }
 

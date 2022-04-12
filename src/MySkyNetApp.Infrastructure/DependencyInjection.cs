@@ -12,6 +12,7 @@ namespace MySkyNetApp.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IHelloWorldService, HelloWorldService>();
+            services.AddScoped<IAutorService, AutorService>();
             return services;
         }
     }
