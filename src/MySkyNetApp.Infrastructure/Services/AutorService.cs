@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MySkyNetApp.Domain.Interfaces.Services;
 using MySkyNetApp.Domain.Models;
 using MySkyNetApp.Infrastructure.Persistence;
@@ -25,6 +26,13 @@ namespace MySkyNetApp.Infrastructure.Services
             _context.Autores.Add(autor);
             await _context.SaveChangesAsync();
             return autor;
+        }
+
+        public async Task<bool> IsEmailUnique(string email)
+        {
+            var exists = await _context.Autores
+                .AnyAsync(autor => autor.Email == email);
+            return !exists;
         }
     }
 }
