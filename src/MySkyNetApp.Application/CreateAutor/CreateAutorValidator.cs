@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
 using MySkyNetApp.Domain.Interfaces.Services;
 
 namespace MySkyNetApp.Application.CreateAutor
@@ -9,9 +10,12 @@ namespace MySkyNetApp.Application.CreateAutor
     {
         private readonly IAutorService _autorService;
 
-        public CreateAutorValidator(IAutorService autorService)
+        private readonly ILogger<CreateAutorValidator> _logger;
+
+        public CreateAutorValidator(IAutorService autorService, ILogger<CreateAutorValidator> logger)
         {
             _autorService = autorService;
+            _logger = logger;
 
             RuleFor(command => command.Nome)
                 .NotNull()
@@ -32,7 +36,15 @@ namespace MySkyNetApp.Application.CreateAutor
 
         private async Task<bool> EmailUnique(string email, CancellationToken token)
         {
-            return await _autorService.IsEmailUnique(email);
+            var isEmailUnique = await _autorService.IsEmailUnique(email);
+            _logger.LogInformation(
+                isEmailUnique ? "Email ainda não cadastrado" : "Email já cadastrado",
+                new { Email = email },
+                $"Método: {nameof(EmailUnique)}",
+                "Usuário: nome_usuario",
+                "Motivo: Porque eu quis"
+            );
+            return isEmailUnique;
         }
     }
 }
