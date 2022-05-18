@@ -5,6 +5,9 @@
 //     Changes to this file may cause incorrect behavior.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using StackSpot.Logging.Correlation;
+using StackSpot.Logging.OpenTracing;
+using StackSpot.Logging;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +21,7 @@ namespace MySkyNetApp.Application.Common.StackSpot
     {
         public static IServiceCollection AddStackSpot(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
+            services.AddLogger(configuration).WithOpenTracing().WithCorrelation();
             return services;
         }
 

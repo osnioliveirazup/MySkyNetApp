@@ -4,6 +4,13 @@ applied_templates:
   template_data_path: skynet-dotnet-stack/rest-app-cs-template
 - inputs: {}
   template_data_path: skynet-dotnet-stack/errorhandler-app-cs-plugin
+- inputs:
+    log_extension:
+    - OpenTracing
+    - CorrelationId
+    log_level: INFO
+  template_data_path: skynet-dotnet-stack/logging-app-cs-plugin
+global_computed_inputs: {}
 global_inputs:
   project_name: MySkyNetApp
 stack: skynet-dotnet-stack
