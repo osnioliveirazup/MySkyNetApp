@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MySkyNetApp.Application\MySkyNetApp.Application.csproj" />
     <ProjectReference Include="..\MySkyNetApp.Domain\MySkyNetApp.Domain.csproj" />
   </ItemGroup>
 
