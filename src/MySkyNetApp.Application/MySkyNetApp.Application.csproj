@@ -22,5 +22,6 @@
     <PackageReference Include="StackSpot.Logging" Version="1.0.1" />
     <PackageReference Include="StackSpot.Logging.Correlation" Version="1.0.1" />
     <PackageReference Include="StackSpot.Logging.OpenTracing" Version="1.0.1" />
+    <PackageReference Include="StackSpot.Tracing" Version="1.0.1" />
   </ItemGroup>
 </Project>

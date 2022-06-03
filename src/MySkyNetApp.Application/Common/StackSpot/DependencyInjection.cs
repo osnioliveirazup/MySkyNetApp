@@ -5,6 +5,7 @@
 //     Changes to this file may cause incorrect behavior.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using StackSpot.Tracing;
 using StackSpot.Logging.Correlation;
 using StackSpot.Logging.OpenTracing;
 using StackSpot.Logging;
@@ -22,11 +23,13 @@ namespace MySkyNetApp.Application.Common.StackSpot
         public static IServiceCollection AddStackSpot(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
             services.AddLogger(configuration).WithOpenTracing().WithCorrelation();
+            services.AddOpenTelemetryTracing(configuration);
             return services;
         }
 
         public static IApplicationBuilder UseStackSpot(this IApplicationBuilder app, IConfiguration configuration, IWebHostEnvironment environment)
         {
+            var appName = configuration["AppName"];
             return app;
         }
     }
