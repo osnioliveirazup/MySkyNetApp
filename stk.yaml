@@ -10,6 +10,11 @@ applied_templates:
     - CorrelationId
     log_level: INFO
   template_data_path: skynet-dotnet-stack/logging-app-cs-plugin
+- inputs:
+    exporter_type: Jaeger
+    port: '6831'
+    server: localhost
+  template_data_path: skynet-dotnet-stack/trace-app-cs-plugin
 global_computed_inputs: {}
 global_inputs:
   project_name: MySkyNetApp
