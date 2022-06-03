@@ -15,6 +15,9 @@ applied_templates:
     port: '6831'
     server: localhost
   template_data_path: skynet-dotnet-stack/trace-app-cs-plugin
+- inputs:
+    type: Prometheus
+  template_data_path: skynet-dotnet-stack/metrics-app-cs-plugin
 global_computed_inputs: {}
 global_inputs:
   project_name: MySkyNetApp

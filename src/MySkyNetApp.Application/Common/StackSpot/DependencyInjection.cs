@@ -5,6 +5,8 @@
 //     Changes to this file may cause incorrect behavior.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Prometheus;
+using StackSpot.Metrics;
 using StackSpot.Tracing;
 using StackSpot.Logging.Correlation;
 using StackSpot.Logging.OpenTracing;
@@ -24,12 +26,15 @@ namespace MySkyNetApp.Application.Common.StackSpot
         {
             services.AddLogger(configuration).WithOpenTracing().WithCorrelation();
             services.AddOpenTelemetryTracing(configuration);
+            services.ConfigureMetrics();
             return services;
         }
 
         public static IApplicationBuilder UseStackSpot(this IApplicationBuilder app, IConfiguration configuration, IWebHostEnvironment environment)
         {
             var appName = configuration["AppName"];
+            app.UseMetricServer();
+            app.UseHttpMetrics();
             return app;
         }
     }
