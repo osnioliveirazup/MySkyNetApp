@@ -18,6 +18,12 @@ applied_templates:
 - inputs:
     type: Prometheus
   template_data_path: skynet-dotnet-stack/metrics-app-cs-plugin
+- inputs:
+    cache_item_ttl: '3700000'
+    max_cache_size: '1024'
+    region_endpoint: us-east-1
+    version_stage: AWSCURRENT
+  template_data_path: skynet-dotnet-stack/secrets-app-cs-plugin
 global_computed_inputs: {}
 global_inputs:
   project_name: MySkyNetApp

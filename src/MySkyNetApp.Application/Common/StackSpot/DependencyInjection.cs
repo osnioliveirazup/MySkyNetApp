@@ -5,6 +5,7 @@
 //     Changes to this file may cause incorrect behavior.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using StackSpot.Secrets;
 using Prometheus;
 using StackSpot.Metrics;
 using StackSpot.Tracing;
@@ -27,6 +28,7 @@ namespace MySkyNetApp.Application.Common.StackSpot
             services.AddLogger(configuration).WithOpenTracing().WithCorrelation();
             services.AddOpenTelemetryTracing(configuration);
             services.ConfigureMetrics();
+            services.AddSecretsManager(configuration, environment);
             return services;
         }
 

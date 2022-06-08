@@ -21,6 +21,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="StackSpot.ErrorHandler" Version="1.0.1" />
     <PackageReference Include="StackSpot.Metrics" Version="1.0.1" />
+    <PackageReference Include="StackSpot.Secrets" Version="1.0.2" />
     <PackageReference Include="StackSpot.Tracing" Version="1.0.1" />
   </ItemGroup>
 </Project>
