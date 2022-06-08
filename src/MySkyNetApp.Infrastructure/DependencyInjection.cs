@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySkyNetApp.Application.Interfaces.Metrics;
@@ -18,9 +17,7 @@ namespace MySkyNetApp.Infrastructure
             services.AddScoped<IHelloWorldService, HelloWorldService>();
             services.AddScoped<IAutorService, AutorService>();
             services.AddScoped<ICounterAutoresCreated, CounterAutoresCreated>();
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite("Data Source=..\\MySkyNetApp.Infrastructure\\Persistence\\Editora.db")
-            );
+            services.AddDbContext<ApplicationDbContext>();
             return services;
         }
     }

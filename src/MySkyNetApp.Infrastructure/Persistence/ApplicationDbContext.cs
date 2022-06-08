@@ -13,6 +13,11 @@ namespace MySkyNetApp.Infrastructure.Persistence
 
         public DbSet<Autor> Autores => Set<Autor>();
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=..\\MySkyNetApp.Infrastructure\\Persistence\\Editora.db");
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration<Autor>(new AutorConfiguration());
